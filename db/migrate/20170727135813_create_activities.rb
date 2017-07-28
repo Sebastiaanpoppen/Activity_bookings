@@ -6,6 +6,7 @@ class CreateActivities < ActiveRecord::Migration[5.1]
       t.datetime  :end_date_time
       t.decimal   :price
       t.integer   :available_seats
+      t.boolean   :booked_full
       t.timestamps
     end
   end

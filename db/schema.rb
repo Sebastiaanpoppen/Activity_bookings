@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727141046) do
+ActiveRecord::Schema.define(version: 20170728152519) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -18,11 +18,42 @@ ActiveRecord::Schema.define(version: 20170727141046) do
     t.datetime "end_date_time"
     t.decimal "price", precision: 10
     t.integer "available_seats"
+    t.boolean "booked_full"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "activity_id"
+    t.bigint "user_id"
+    t.index ["activity_id"], name: "index_bookings_on_activity_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "childs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.date "date_of_birth"
+    t.boolean "is_male"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_childs_on_user_id"
+  end
+
+  create_table "invoices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.date "invoice_date"
+    t.decimal "price", precision: 10
+    t.boolean "has_payed"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.boolean "is_male"
+    t.string "telephone"
+    t.string "mobile"
+    t.boolean "is_admin"
+    t.boolean "is_active", default: true, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -39,4 +70,8 @@ ActiveRecord::Schema.define(version: 20170727141046) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "activities"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "childs", "users"
+  add_foreign_key "invoices", "users"
 end
