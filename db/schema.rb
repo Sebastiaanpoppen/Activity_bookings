@@ -30,12 +30,12 @@ ActiveRecord::Schema.define(version: 20170728152519) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "childs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "children", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.date "date_of_birth"
     t.boolean "is_male"
     t.bigint "user_id"
-    t.index ["user_id"], name: "index_childs_on_user_id"
+    t.index ["user_id"], name: "index_children_on_user_id"
   end
 
   create_table "invoices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -72,6 +72,6 @@ ActiveRecord::Schema.define(version: 20170728152519) do
 
   add_foreign_key "bookings", "activities"
   add_foreign_key "bookings", "users"
-  add_foreign_key "childs", "users"
+  add_foreign_key "children", "users"
   add_foreign_key "invoices", "users"
 end

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :bookings
-  has_many :childs
+  has_many :children
   has_many :invoices
   # has_one  :shedule
 
