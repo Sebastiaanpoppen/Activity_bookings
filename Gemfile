@@ -14,6 +14,7 @@ gem 'webpacker'
 gem 'devise'
 gem 'active_model_serializers', '0.9.3'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'rack-cors', require: 'rack/cors'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

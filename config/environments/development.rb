@@ -6,7 +6,6 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.x.webpacker[:dev_server_host] = "http://127.0.0.1:8080"
 
   # Do not eager load code on boot.
   config.eager_load = false
