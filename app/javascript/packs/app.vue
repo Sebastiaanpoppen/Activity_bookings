@@ -1,22 +1,22 @@
+<style src="./assets/custom.css" rel="stylesheet"></style>
+
 <template>
   <div id="app">
-    <p>{{ message }}</p>
+    <user-navbar></user-navbar>
+    <app-header></app-header>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {
-  data: function () {
-    return {
-      message: "This will be the activities index page!"
-    }
-  }
-}
-</script>
+import UserNavbar from './components/UserNavbar';
+import AppHeader from './components/AppHeader'
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
-</style>
+export default {
+  name: 'app',
+  components: {
+    UserNavbar,
+    AppHeader,
+  },
+};
+</script>

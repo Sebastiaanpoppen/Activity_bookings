@@ -1,6 +1,7 @@
 class VueController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-  end
+  # def index
+  #   binding.pry
+  # end
 end
