@@ -1,5 +1,5 @@
 <template>
-  <header class="page-header">
+  <header class="page-header" id='header'>
     <h1></h1>
     <!-- <div class="page_header_actions" v-for="button in buttons"> -->
       <!-- <router-link v-if="button.link" :to="button.link" :class="`btn btn-${button.type}`">

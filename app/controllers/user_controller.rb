@@ -1,7 +1,5 @@
 class UserController < ApplicationController
-  # before_action :authenticate_user!
-  #
-  # def get_user
-  #   binding.pry
-  # end
+  def get_user
+    render json: current_user
+  end
 end

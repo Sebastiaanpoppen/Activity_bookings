@@ -14,7 +14,11 @@ module.exports = merge(sharedConfig, {
   output: {
     pathinfo: true
   },
-
+  resolve: {
+      alias: {
+          'vue$': 'vue/dist/vue.esm.js'
+      }
+  },
   devServer: {
     clientLogLevel: 'none',
     https: settings.dev_server.https,

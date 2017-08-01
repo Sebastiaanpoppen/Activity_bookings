@@ -4,7 +4,7 @@ import Config from './Config';
 class Api {
   static get myAxios() {
     return axios.create({
-      baseURL: Config.getConfig('ApiUrl'),
+      baseURL: "http://localhost:3000",
     });
   }
 
@@ -13,13 +13,11 @@ class Api {
     .then(response => response);
   }
 
-  static getRelated(ClassRef, property, id) {
-    return this.myAxios.get(`${ClassRef.endpoint}`, {
-      params: `filters[${property}_id_eq]=${id}` })
-      .then(response => ({
-        data: response.data.map(rawData => new ClassRef(rawData)),
-      }));
-  }
+  // static getRelated(ClassRef, property, id) {
+  //   return this.myAxios.get(`${ClassRef.endpoint}`, {
+  //     params: id })
+  //     .then(response => (response);
+  // }
 
   static getArray(ClassRef) {
     return this.myAxios.get(`${ClassRef.endpoint}`);

@@ -31,5 +31,10 @@ module.exports = {
   settings,
   env,
   loadersDir,
-  output
+  output,
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+    }
+  }
 }
